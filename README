@@ -1,0 +1,11 @@
+Simple Use (ssh password must be set manually by enter to the container):
+- docker run -p 3306:3306 -p 221:22 -d diksy/mysql-ssh
+
+Use SSH Public Key:
+- docker run -p 3306:3306 -p 221:22 -v /path/to/.ssh/dir:/root/.ssh -d diksy/mysql-ssh
+
+Persistent Log Dir:
+- docker run -p 3306:3306 -p 221:22 -v /path/to/log/dir:/var/log/supervisor -d diksy/mysql-ssh
+
+If you want to persistent mysql data, first you must sync /var/lib/mysql/ to host directory. Then, re-deploy container with:
+- docker run -p 3306:3306 -p 221:22 -v /path/to/host/dir:/var/lib/mysql -d diksy/mysql-ssh
