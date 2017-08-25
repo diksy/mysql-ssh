@@ -9,7 +9,7 @@ RUN dpkg-reconfigure tzdata
 RUN sed -i s/deb.debian.org/mirror.unej.ac.id/g /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get dist-upgrade -y
-# install openssh-server
+# install apps
 RUN apt-get install -y supervisor mysql-server openssh-server net-tools
 RUN sed -i s/bind-address/#bind-address/g /etc/mysql/my.cnf
 RUN mkdir /var/run/sshd/
